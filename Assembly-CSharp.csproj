@@ -52,8 +52,8 @@
     <Compile Include="Assets\Script\MovingPlateform.cs" />
     <Compile Include="Assets\Script\Rotator.cs" />
     <Compile Include="Assets\Script\Player\PlayerController.cs" />
-    <Compile Include="Assets\Script\Camera.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Script\CameraController.cs" />
     <Compile Include="Assets\Script\Player\LifeHandler.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,14 +9,12 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private LayerMask ground;
     private Rigidbody rb;
-    private Transform location;
 
     private bool onGround = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        location = GetComponent<Transform>();
     }
 
     void Update()
@@ -38,9 +36,15 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
+        // Create a movement vector relative to the player
+        Vector3 moveDirection = new Vector3(horizontal, 0, vertical);
+        
+        // Transform in world space using player rotation
+        Vector3 worldMoveDirection = transform.TransformDirection(moveDirection);
+
         Vector3 velocityMove = rb.linearVelocity;
-        velocityMove.x = speed * horizontal;
-        velocityMove.z = speed * vertical;
+        velocityMove.x = speed * worldMoveDirection.x;
+        velocityMove.z = speed * worldMoveDirection.z;
 
         rb.linearVelocity = velocityMove;
     }
