@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
 
@@ -59,6 +60,14 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("enemy head"))
         {
             Destroy(collision.transform.parent.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Finish"))
+        {
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
