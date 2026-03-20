@@ -19,11 +19,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            Debug.Log(onGround);
-        }
         // Jump
         if (Input.GetButtonDown("Jump") && onGround)
         {
